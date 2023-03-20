@@ -55,4 +55,10 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="M03_Xaml-Grundlagen.xaml.cs">
+	    <DependentUpon>M03_Xaml-Grundlagen.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
 </Project>

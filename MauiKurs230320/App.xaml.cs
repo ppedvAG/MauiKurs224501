@@ -8,9 +8,11 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+        //MainPage beinhaltet die jeweils angezeigte Seite. Zuweisungen hier definieren die Startpage der App.
+        MainPage = new Grundlagen();
 	}
 
+    //Override der CreateWindow() um Zugriff auf globale shared Lifecycle-Events zu haben (für OS-spezifische LC-Events siehe MauiProgram.cs)
     protected override Window CreateWindow(IActivationState activationState)
     {
         Window wnd = base.CreateWindow(activationState);

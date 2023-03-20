@@ -6,7 +6,11 @@ namespace MauiKurs230320;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
+    //Der MauiAppBuilder erstllt die MAUI-App und bietet die Möglichkeiten diverse Elemente zu registrieren.
+    //Hier können z.B. Fonts, Singletons, OS-spezifische LC-Events uvm eingebunden werden.
+    //Zudem dient dieses Objekt als erster gemeinsamrer Code aller Betriebssysteme. Die OS-spezifischen Einstiegspunkte
+    //(z.B. Plattforms/Android/MainApplication) verweisen alle auf diese Methode.
+    public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
@@ -17,9 +21,10 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
+        //Android-spezifische LC-Events
 #if ANDROID
 
-		builder.ConfigureLifecycleEvents
+        builder.ConfigureLifecycleEvents
 			(
 				events =>
 				{
