@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- vgl. App.xaml.cs-->
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:MauiKurs230320"
+            xmlns:bindings="clr-namespace:MauiKurs230320.Binding"
+            x:Class="MauiKurs230320.Navi.TabbedPageBsp"
+            Title="TabbedPageBsp">
+    <!--TabbedPages bieten eine Registerkarten-Navigation für beinhaltende ContentPages-->
+    <local:Grundlagen/>
+    <local:Controls Title="Controls"/>
+    <local:Layouts Title="Layouts"/>
+    <bindings:Bindings Title="Bindungen"/>
+    <ContentPage Title="Test">
+        <StackLayout>
+            <Label Text="TEST"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentPage>
+
+</TabbedPage>

@@ -167,7 +167,7 @@
               RowSpacing="5"
               Padding="10"
               ColumnDefinitions="Auto,*"
-              RowDefinitions="*,*,*,*">
+              RowDefinitions="*,*,Auto,*">
 
             <Label x:Name="Lbl_Name"
                    Text="Name:"/>

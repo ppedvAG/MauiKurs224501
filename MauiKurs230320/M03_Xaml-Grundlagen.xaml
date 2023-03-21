@@ -5,7 +5,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MauiKurs230320"
-             x:Class="MauiKurs230320.Grundlagen">
+             x:Class="MauiKurs230320.Grundlagen"
+             Title="XAML-Grundlagen">
     <ContentPage.Content>
         <!--In MAUI darf jede Page einen Haupt-Layoutcontainer enthalten, in welchem alle
         weiteren Container und Controls beinhaltet sind (vgl. Content-Property)-->

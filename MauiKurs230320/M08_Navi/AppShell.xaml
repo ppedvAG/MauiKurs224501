@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--vgl. CodeBehind, RoutingBsp.xaml, RouteTargetPage.xaml, App.xaml.cs-->
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:MauiKurs230320"
+       xmlns:navi="clr-namespace:MauiKurs230320.Navi"
+       xmlns:bindings="clr-namespace:MauiKurs230320.Binding"
+       xmlns:flyout="clr-namespace:MauiKurs230320.Navi.FlyoutBsp"
+             x:Class="MauiKurs230320.Navi.AppShell"
+             Title="AppShell">
+
+    <!--Die Shell bietet eine Routing-Navigation für alle angemeldeten Seiten (vgl. RoutingBsp.xaml)-->
+    <!--FlyoutItems generieren ein Flyout-Menü, Tab und TabBar generieren eine Register-Navigation-->
+
+    <FlyoutItem Title="M03-M05: MAUI-Grundlagen"
+                Route="grundlagen">
+        <ShellContent Title="XAML"
+                      ContentTemplate="{DataTemplate local:Grundlagen}"
+                      Route="xaml"/>
+        <ShellContent Title="Controls"
+                      ContentTemplate="{DataTemplate local:Controls}"
+                      Route="controls"/>
+        <ShellContent Title="Layouts"
+                      ContentTemplate="{DataTemplate local:Layouts}"
+                      Route="layouts"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="M06: Resources and Styles">
+        <ShellContent Route="resources"
+                      ContentTemplate="{DataTemplate local:Resources_Styles}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="M07: Bindings">
+        <ShellContent Route="bindings">
+            <bindings:Bindings/>
+        </ShellContent>
+    </FlyoutItem>
+
+    <FlyoutItem Title="M08: Navigation"
+                Route="navi">
+        <ShellContent Title="RoutingBsp"
+                      Route="routingBsp"
+                      ContentTemplate="{DataTemplate navi:RoutingBsp}"/>
+        <!--Shell ist momentan nicht kompatibel mit den anderen (unten stehenden) Navigationsarten -> generiert Exception-->
+        <ShellContent Title="NavigationPage"
+                      Route="navigationpage"
+                      ContentTemplate="{DataTemplate navi:NavPageBsp}"/>
+        <ShellContent Title="TabbedPage"
+                      Route="tabbedpage"
+                      ContentTemplate="{DataTemplate navi:TabbedPageBsp}"/>
+        <ShellContent Title="FlyoutPage"
+                      Route="flyoutpage"
+                      ContentTemplate="{DataTemplate flyout:FlyoutPage1}"/>
+    </FlyoutItem>
+</Shell>
