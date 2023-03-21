@@ -8,24 +8,42 @@ using System.Threading.Tasks;
 
 namespace MauiKurs230320.Binding
 {
-    class Person : INotifyPropertyChanged
+    //Model-Klasse zur Verwendung im BindingContext
+    //Das Interface INotifyPropertyChanged sorgt für ein neues Event, welches bei Aktivierung die GUI über eine Veränderung in diesem Objekt informiert
+    internal class Person : INotifyPropertyChanged
     {
+        //Eine Datenbindung kann nur an Properties durchgeführt werden (keine Felder)
         public string Name { get; set; }
-        public int Alter { get; set; }
 
-        public ObservableCollection<DateTime> WichtigeTage { get; set; } = new ObservableCollection<DateTime>()
+        private int alter;
+        public int Alter
         {
-            new DateTime(2003, 2, 23),
-            new DateTime(2011, 4, 1),
-            DateTime.Now
-        };
+            get => alter;
+            set
+            {
+                alter = value;
+                //Das PropertyChanged-Event muss zu dem Zeitpunkt geworfen werden, zu dem die GUI über eine Veränderung informiert werden soll
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Alter)));
+            }
+        }
 
+        //Durch das Interface geforderte Event
         public event PropertyChangedEventHandler PropertyChanged;
 
-        internal void AktualisiereGUI()
+        //Properties vom Typ ObservableCollection informieren die GUI automatisch über Veränderungen (z.B. neuer Listeneintrag). Sie eignen sich besonders gut
+        //für eine Bindung an ein ItemControl (z.B. Picker, ListView, CollectionView, ...)
+        public ObservableCollection<DateTime> WichtigeDaten { get; set; }
+
+        public Person()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Alter)));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
+            WichtigeDaten = new ObservableCollection<DateTime>();
+
+            //Erstellen von Bsp-Daten
+            WichtigeDaten.Add(new DateTime(2002, 12, 3));
+            WichtigeDaten.Add(new DateTime(2013, 1, 2));
         }
+
+
+
     }
 }

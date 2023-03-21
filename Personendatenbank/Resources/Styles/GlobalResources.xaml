@@ -29,7 +29,7 @@
     <Style TargetType="DatePicker">
         <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />
-        <Setter Property="Format" Value="dd.MM.yyyy"/>
+        <Setter Property="Format" Value="dd-MM-yyyy"/>
         <Setter Property="HorizontalOptions" Value="Fill"/>
     </Style>
     
