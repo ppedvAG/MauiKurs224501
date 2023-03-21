@@ -9,6 +9,7 @@ public partial class Layouts : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-		Grid.SetRow(Lbl_Gelb, 3);
+        //Zugriff auf AttachedProperty
+        Grid.SetColumn(Btn_Move, 1);
     }
 }

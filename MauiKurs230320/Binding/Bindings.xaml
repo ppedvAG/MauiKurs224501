@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiKurs230320.Binding"
+             x:Class="MauiKurs230320.Binding.Bindings"
+             Title="Bindings">
+    <ContentPage.Resources>
+        <local:DoubleToColorConverter x:Key="double2color"/>
+        <local:DoublesToColorConverter x:Key="doubles2color"/>
+        
+        <DataTemplate x:Key="Dtpl_DateTime">
+            <ViewCell>
+                <HorizontalStackLayout>
+                    <Entry Text="{Binding Day}"/>
+                    <Label Text="."/>
+                    <Label Text="{Binding Month}"/>
+                    <Label Text="."/>
+                    <Label Text="{Binding Year}" Margin="0,0,5,0"/>
+                    <Label Text="{Binding DayOfWeek, StringFormat='({0})'}"/>
+                </HorizontalStackLayout>
+            </ViewCell>
+        </DataTemplate>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout Margin="10">
+        <Slider Minimum="0"
+                Maximum="255"
+                x:Name="Sdr_Eins"/>
+        <Entry Text="{Binding Source={x:Reference Sdr_Eins}, Path=Value}"/>
+        <Label HeightRequest="100"
+               WidthRequest="100"
+               BackgroundColor="{Binding Source={x:Reference Sdr_Eins},
+                                         Path=Value,
+                                         Converter={StaticResource double2color},      
+                                         ConverterParameter=150}"/>
+        <Slider Minimum="0"
+                Maximum="255"
+                x:Name="Sdr_Zwei"
+                Value="123"/>
+        <Label Text="{Binding Source={x:Reference Sdr_Zwei}, Path=Value, StringFormat='Grün: {0:0.00}'}"/>
+        <Slider Minimum="0"
+                Maximum="255"
+                x:Name="Sdr_Drei"/>
+        <Label HeightRequest="100"
+               WidthRequest="100">
+            <Label.BackgroundColor>
+                <MultiBinding Converter="{StaticResource doubles2color}">
+                    <Binding Source="{x:Reference Sdr_Eins}"
+                             Path="Value"
+                             Mode="OneWay"/>
+                    <Binding Source="{x:Reference Sdr_Zwei}"
+                             Path="Value"
+                             Mode="OneWay"/>
+                    <Binding Source="{x:Reference Sdr_Drei}"
+                             Path="Value"
+                             Mode="OneWay"/>
+                </MultiBinding>
+            </Label.BackgroundColor>
+        </Label>
+
+        <VerticalStackLayout x:Name="Sly_DataBinding">
+            <VerticalStackLayout.BindingContext>
+                <local:Person Name="Rainer Zufall" Alter="34"/>
+            </VerticalStackLayout.BindingContext>
+
+            <Entry Text="{Binding Path=Name}"/>
+            <Label Text="{Binding Alter}"/>
+            <Label Text="{Binding WichtigeTage[2].DayOfWeek}"/>
+
+            <Button Text="Show" x:Name="Btn_Show"
+                    Clicked="Btn_Show_Clicked"/>
+            <Button Text="Altern" x:Name="Btn_Altern"
+                    Clicked="Btn_Altern_Clicked"/>
+
+            <ListView ItemsSource="{Binding WichtigeTage}"
+                      x:Name="LstV_Tage"
+                      ItemTemplate="{StaticResource Dtpl_DateTime}">
+                <!--<ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <HorizontalStackLayout>
+                                <Entry Text="{Binding Day}"/>
+                                <Label Text="."/>
+                                <Label Text="{Binding Month}"/>
+                                <Label Text="."/>
+                                <Label Text="{Binding Year}" Margin="0,0,5,0"/>
+                                <Label Text="{Binding DayOfWeek, StringFormat='({0})'}"/>
+                            </HorizontalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>-->
+            </ListView>
+            <Button Text="Neu" x:Name="Btn_New"
+                    Clicked="Btn_New_Clicked"/>
+            <Button Text="Löschen" x:Name="Btn_Delete"
+                    Clicked="Btn_Delete_Clicked"/>
+
+            <Picker ItemsSource="{local:EnumBindingSource {x:Type local:TestEnum} }"/>
+
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
