@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiKurs230320.Plattformspezifika.Plattformspezifika"
+             Title="Plattformspezifika">
+    <VerticalStackLayout>
+        <Label 
+            Text="{OnPlatform Default=DEFAULT, Android=ANDROID, WinUI=WINDOWS, iOS=IOS}"
+            BackgroundColor="{OnIdiom Default=HotPink, Phone=Yellow, Tablet=Green, Desktop=Red}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label x:Name="Lbl_Orientation"/>
+
+        <Label x:Name="Lbl_Batterie"/>
+        
+        <Label x:Name="Lbl_Pref"/>
+    </VerticalStackLayout>
+</ContentPage>

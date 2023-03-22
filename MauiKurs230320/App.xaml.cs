@@ -32,7 +32,7 @@ public partial class App : Application
         Window wnd = base.CreateWindow(activationState);
 
 		wnd.Created += (s, e) => Debug.Print("OnStart");
-		wnd.Stopped += (s, e) => Debug.Print("OnStop");
+        wnd.Stopped += (s, e) => { Debug.Print("OnStop"); Preferences.Set("onStop", "CIAO"); };
 
 		return wnd;
     }

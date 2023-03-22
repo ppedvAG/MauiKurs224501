@@ -6,6 +6,7 @@
        xmlns:navi="clr-namespace:MauiKurs230320.Navi"
        xmlns:bindings="clr-namespace:MauiKurs230320.Binding"
        xmlns:flyout="clr-namespace:MauiKurs230320.Navi.FlyoutBsp"
+       xmlns:platform="clr-namespace:MauiKurs230320.Plattformspezifika"
              x:Class="MauiKurs230320.Navi.AppShell"
              Title="AppShell">
 
@@ -51,5 +52,10 @@
         <ShellContent Title="FlyoutPage"
                       Route="flyoutpage"
                       ContentTemplate="{DataTemplate flyout:FlyoutPage1}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="M09: Plattformspezifika">
+        <ShellContent Route="plattform"
+                      ContentTemplate="{DataTemplate platform:Plattformspezifika}"/>
     </FlyoutItem>
 </Shell>
