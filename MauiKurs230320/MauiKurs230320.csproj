@@ -56,10 +56,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="5.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="M11_Gesten.xaml.cs">
+	    <DependentUpon>M11_Gesten.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="M11_Loc\Strings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Strings.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="M05_Layouts.xaml.cs">
 	    <DependentUpon>M05_Layouts.xaml</DependentUpon>
 	  </Compile>
@@ -75,12 +84,28 @@
 	  <Compile Update="M08_Navi\RouteTargetPage.xaml.cs">
 	    <DependentUpon>RouteTargetPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="M11_MCSubscriberPage.xaml.cs">
+	    <DependentUpon>M11_MCSubscriberPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Platforms\Windows\Services\DeviceOrientationService.cs">
 	    <ExcludeFromCurrentConfiguration>false</ExcludeFromCurrentConfiguration>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Update="M11_Loc\Strings.en-US.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="M11_Loc\Strings.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="M11_Gesten.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="M07_Binding\Bindings.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -108,7 +133,13 @@
 	  <MauiXaml Update="M08_Navi\TabbedPageBsp.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Plattformspezifika\Plattformspezifika.xaml">
+	  <MauiXaml Update="M09_Plattformspezifika\Plattformspezifika.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="M11_MCSubscriberPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="M10_MVVM\View\BerispielView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

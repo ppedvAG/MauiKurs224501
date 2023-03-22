@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//vgl. M009_Plattformspezifika\DeviceOrientationService.cs und Plattforms\Android\Services\DeviceOrientationService.de
 namespace MauiKurs230320.Plattformspezifika
 {
     public partial class DeviceOrientationService

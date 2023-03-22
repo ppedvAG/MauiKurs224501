@@ -52,7 +52,12 @@ public partial class Pg_AddPerson : ContentPage
            )
         {
             this.BindingContext = new Model.Person();
-           
+            
+            //Lab 09
+            Services.ToastService.ShowToast($"{person.Name} wurde hinzugefügt", true);
+
+            //Lab 10
+            Model.Person.PersonList.Add(person);
         }
     }
 

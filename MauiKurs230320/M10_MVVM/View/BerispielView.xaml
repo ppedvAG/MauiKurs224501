@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiKurs230320.MVVM.View.BeispielView"
+             xmlns:vm="clr-namespace:MauiKurs230320.MVVM.ViewModel"
+             xmlns:tk="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="BeispielView">
+    <ContentPage.BindingContext>
+        <vm:BeispielViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout>
+        <Entry Placeholder="Hersteller" Text="{Binding NeuerHersteller}"/>
+        <Entry Placeholder="Maximalgeschwindigkeit" Text="{Binding NeueMaxGeschwindigkeit}"/>
+        <DatePicker Date="{Binding NeuesBaujahr}"/>
+
+        <Button Text="Hinzufügen" Command="{Binding HinzufügenCmd}"/>
+
+        <ListView VerticalOptions="FillAndExpand"
+                  ItemsSource="{Binding PkwListe}"
+                  Margin="5"
+                  x:Name="LstV_PKWs">
+            <ListView.Behaviors>
+                <tk:EventToCommandBehavior EventName="ItemSelected"
+                                           Command="{Binding UpdateSelecedPKW}"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="3">
+                            <Label Text="{Binding Hersteller, StringFormat='{0}: '}" Margin="0,0,2,0"/>
+                            <Label Text="{Binding MaxGeschwindigkeit, StringFormat='{0} km/h'}" Margin="0,0,2,0"/>
+                            <Label Text="{Binding Baujahr.Year, StringFormat='({0})'}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Löschen" Command="{Binding LöschenCmd}" CommandParameter="{Binding Source={x:Reference LstV_PKWs}}"/>
+    </StackLayout>
+</ContentPage>

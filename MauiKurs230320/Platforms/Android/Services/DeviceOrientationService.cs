@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Spezifische Implementierung muss in gleichem Namespace wie gemeinsame Definition sein
+//(vgl. M009_Plattformspezifika\DeviceOrientationService.cs)
 namespace MauiKurs230320.Plattformspezifika
 {
     public partial class DeviceOrientationService

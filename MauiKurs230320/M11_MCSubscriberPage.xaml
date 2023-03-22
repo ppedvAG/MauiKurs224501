@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:MauiKurs230320.M11_Loc"
+             x:Class="MauiKurs230320.MCSubscriberPage"
+             Title="MCSubscriberPage">
+    <VerticalStackLayout>
+            <!--Für MessagingCenter-Sender vgl. M08_Navi.NavPageBsp.xaml.cs-->
+            <Label Text="Welcome to .NET MAUI!"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+               x:Name="Lbl_Main"/>
+
+            <!--Lokalisierung erfolgen in .NET nativ über resx-Dateien. An diese bindet man über x:Static an-->
+            <Label 
+            Text="{x:Static loc:Strings.Lbl_String}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Margin="20"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -7,6 +7,7 @@
        xmlns:bindings="clr-namespace:MauiKurs230320.Binding"
        xmlns:flyout="clr-namespace:MauiKurs230320.Navi.FlyoutBsp"
        xmlns:platform="clr-namespace:MauiKurs230320.Plattformspezifika"
+       xmlns:mvvm="clr-namespace:MauiKurs230320.MVVM.View"
              x:Class="MauiKurs230320.Navi.AppShell"
              Title="AppShell">
 
@@ -57,5 +58,15 @@
     <FlyoutItem Title="M09: Plattformspezifika">
         <ShellContent Route="plattform"
                       ContentTemplate="{DataTemplate platform:Plattformspezifika}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="M10: MVVM">
+        <ShellContent Route="mvvm"
+                      ContentTemplate="{DataTemplate mvvm:BeispielView}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="M11: Gesten">
+        <ShellContent Route="gesten"
+                      ContentTemplate="{DataTemplate local:Gesten}"/>
     </FlyoutItem>
 </Shell>

@@ -14,11 +14,12 @@ namespace Personendatenbank.Model
         public Gender Gender { get; set; }
         public bool IsMarried { get; set; }
 
-        public Person()
-        {
-            Birthdate = DateTime.Now;
 
-            Gender = Gender.Weiblich;
-        }
+        //Lab 10
+        public static ObservableCollection<Person> PersonList { get; set; } = new ObservableCollection<Person>()
+        {
+            new Person(){ Name = "Anna Nass", Gender=Gender.Weiblich, IsMarried = true, Birthdate=new DateTime(2003, 12, 3) },
+        };
     }
 }
+
